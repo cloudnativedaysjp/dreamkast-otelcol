@@ -1,0 +1,33 @@
+---
+"on":
+  push:
+    branches: ["main"]
+
+jobs:
+  judge-exec:
+    outputs:
+      needs-build: ${{ steps.judge-needs-build.outputs.any_changed }}
+    permissions:
+      contents: read
+    timeout-minutes: 5
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          persist-credentials: false
+      - id: judge-needs-build
+        uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0  # v46.0.3
+        with:
+          files: |
+            otelcol-config/**
+
+  build-push-otelcol:
+    needs: judge-exec
+    if: needs.judge-exec.outputs.needs-build == 'true'
+    permissions:
+      contents: read
+    uses: ./.github/workflows/wf-build-push-otelcol.yaml
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      secrets_github_token: ${{ secrets.GITHUB_TOKEN }}
