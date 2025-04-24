@@ -4,14 +4,11 @@
     branches: ["main"]
 
 jobs:
-  lint-gha:
-    uses: ./.github/workflows/wf-build-push-otelcol.yaml
-    secrets: inherit
-
   judge-exec:
     outputs:
       needs-build: ${{ steps.judge-needs-build.outputs.any_changed }}
-      needs-put-otelcol-config: ${{ steps.judge-needs-put-otelcol-config.outputs.any_changed }}
+    permissions:
+      contents: read
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
@@ -23,21 +20,14 @@ jobs:
         with:
           files: |
             otelcol-config/**
-      - id: judge-needs-put-otelcol-config
-        uses: tj-actions/changed-files@823fcebdb31bb35fdf2229d9f769b400309430d0  # v46.0.3
-        with:
-          files: |
-            otelcol-config/stg/otelcol-config.yaml
-            otelcol-config/prod/otelcol-config.yaml
 
   build-push-otelcol:
     needs: judge-exec
     if: needs.judge-exec.outputs.needs-build == 'true'
+    permissions:
+      contents: read
     uses: ./.github/workflows/wf-build-push-otelcol.yaml
-    secrets: inherit
-
-  put-otelcol-config:
-    needs: judge-exec
-    if: needs.judge-exec.outputs.needs-put-otelcol-config == 'true'
-    uses: ./.github/workflows/wf-put-otelcol-config.yaml
-    secrets: inherit
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      secrets_github_token: ${{ secrets.GITHUB_TOKEN }}
