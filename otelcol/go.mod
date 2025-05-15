@@ -18,9 +18,9 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/receiver/redisreceiver v0.126.0
 	go.opentelemetry.io/collector/component v1.32.0
 	go.opentelemetry.io/collector/confmap v1.32.0
-	go.opentelemetry.io/collector/confmap/provider/envprovider v1.30.0
+	go.opentelemetry.io/collector/confmap/provider/envprovider v1.32.0
 	go.opentelemetry.io/collector/confmap/provider/fileprovider v1.32.0
-	go.opentelemetry.io/collector/confmap/provider/httpsprovider v1.30.0
+	go.opentelemetry.io/collector/confmap/provider/httpsprovider v1.32.0
 	go.opentelemetry.io/collector/confmap/provider/yamlprovider v1.32.0
 	go.opentelemetry.io/collector/connector v0.126.0
 	go.opentelemetry.io/collector/exporter v0.126.0
