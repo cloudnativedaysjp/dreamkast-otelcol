@@ -12,3 +12,21 @@ generate-code: ## Generate the otelcol code
 .PHONY: build
 build: ## Build the otelcol image
 	docker buildx build -t otelcol-dreamkast:latest .
+
+.PHONY: lint
+lint: lint-docker lint-gha lint-ocb ## Lint
+
+.PHONY: lint-docker
+lint-docker:
+	hadolint Dockerfile
+
+.PHONY: lint-gha
+lint-gha:
+	yamllint .github/workflows/
+	actionlint
+	ghalint run || true
+	zizmor . || true
+
+.PHONY: lint-ocb
+lint-ocb:
+	yamllint builder-config.yaml
