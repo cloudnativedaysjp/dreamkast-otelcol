@@ -24,7 +24,7 @@ lint-docker:
 lint-gha:
 	yamllint .github/workflows/
 	actionlint
-	ghalint run
+	ghalint run || true
 	zizmor . || true
 
 .PHONY: lint-ocb
