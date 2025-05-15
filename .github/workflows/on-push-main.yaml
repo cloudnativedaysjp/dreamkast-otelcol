@@ -9,7 +9,7 @@ jobs:
       needs-build: ${{ steps.judge-needs-build.outputs.any_changed }}
     permissions:
       contents: read
-    timeout-minutes: 1
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
@@ -29,16 +29,7 @@ jobs:
     permissions:
       contents: read
       id-token: write
-    timeout-minutes: 20
-    runs-on: ubuntu-latest
-    steps:
-      - name: build and push to stg
-        uses: cloudnativedaysjp/reusable-workflows/.github/workflows/wc-build-image.yml@main
-        with:
-          image_name: dreamkast-otelcol
-          aws_region: us-west-2
-      - name: build and push to prod
-        uses: cloudnativedaysjp/reusable-workflows/.github/workflows/wc-build-image.yml@main
-        with:
-          image_name: dreamkast-otelcol
-          aws_region: ap-northeast-1
+    uses: cloudnativedaysjp/reusable-workflows/.github/workflows/wc-build-image.yml@main
+    with:
+      image_name: dreamkast-otelcol
+      aws_region: ap-northeast-1
