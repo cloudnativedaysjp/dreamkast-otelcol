@@ -6,8 +6,7 @@ help:
 
 .PHONY: generate-code
 generate-code: ## Generate the otelcol code
-	docker buildx build -t otelcol-dreamkast:ocb --target ocb .
-	docker run --rm --mount type=bind,source=$(PWD),target=/mnt --workdir /mnt otelcol-dreamkast:ocb ocb --config builder-config.yaml --skip-compilation
+	go get ./... && go mod tidy && go generate ./...
 
 .PHONY: build
 build: ## Build the otelcol image
@@ -24,8 +23,8 @@ lint-docker:
 lint-gha:
 	yamllint .github/workflows/
 	actionlint
-	ghalint run || true
-	zizmor . || true
+	ghalint run
+	zizmor .
 
 .PHONY: lint-ocb
 lint-ocb:

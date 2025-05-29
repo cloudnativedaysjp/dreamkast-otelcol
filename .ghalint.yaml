@@ -1,0 +1,13 @@
+---
+excludes:
+  - policy_name: checkout_persist_credentials_should_be_false
+    workflow_file_path: .github/workflows/on-pull_request.yaml
+    job_name: generate-otelcol
+  - policy_name: action_ref_should_be_full_length_commit_sha
+    workflow_file_path: .github/workflows/on-push-main.yaml
+    job_name: build-push-otelcol-stg
+    action_name: cloudnativedaysjp/reusable-workflows/.github/workflows/wc-build-image.yml
+  - policy_name: action_ref_should_be_full_length_commit_sha
+    workflow_file_path: .github/workflows/on-push-main.yaml
+    job_name: build-push-otelcol-prod
+    action_name: cloudnativedaysjp/reusable-workflows/.github/workflows/wc-build-image.yml
