@@ -18,6 +18,8 @@ lint: lint-docker lint-gha lint-ocb ## Lint
 .PHONY: lint-docker
 lint-docker:
 	hadolint Dockerfile
+	yamllint container-structure-test.yaml
+	container-structure-test test --image otelcol-dreamkast:latest --config container-structure-test.yaml
 
 .PHONY: lint-gha
 lint-gha:

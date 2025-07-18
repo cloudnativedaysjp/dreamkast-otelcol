@@ -9,6 +9,6 @@ RUN go build -o otelcol .
 
 FROM gcr.io/distroless/base-debian12:nonroot
 
-COPY --from=builder /root/otelcol/otelcol /urs/local/bin/otelcol
+COPY --from=builder /root/otelcol/otelcol /usr/local/bin/otelcol
 
 ENTRYPOINT ["/usr/local/bin/otelcol", "--config=/etc/otelcol-config.yaml"]
