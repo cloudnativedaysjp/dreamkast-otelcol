@@ -7,7 +7,10 @@ COPY otelcol/ otelcol/
 WORKDIR /root/otelcol
 RUN go build -o otelcol .
 
-FROM gcr.io/distroless/base-debian12:nonroot
+FROM debian:12-slim
+
+RUN adduser --disabled-password --gecos "" nonroot
+USER nonroot
 
 COPY --from=builder /root/otelcol/otelcol /usr/local/bin/otelcol
 
