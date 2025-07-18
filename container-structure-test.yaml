@@ -1,0 +1,21 @@
+---
+schemaVersion: "2.0.0"
+
+fileExistenceTests:
+  - name: "otelcol binary"
+    path: "/usr/local/bin/otelcol"
+    shouldExist: true
+    permissions: "-rwxr-xr-x"
+
+commandTests:
+  - name: "otelcol help"
+    command: "/usr/local/bin/otelcol"
+    args: ["--help"]
+    expectedOutput: ["Available Commands"]
+    exitCode: 0
+
+  - name: "otelcol components"
+    command: "/usr/local/bin/otelcol"
+    args: ["components"]
+    expectedOutput: ["hostmetrics"]
+    exitCode: 0
