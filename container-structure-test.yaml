@@ -7,6 +7,10 @@ fileExistenceTests:
     shouldExist: true
     permissions: "-rwxr-xr-x"
 
+  - name: "bash exists"
+    path: "/bin/bash"
+    shouldExist: true
+
 commandTests:
   - name: "otelcol help"
     command: "/usr/local/bin/otelcol"
@@ -18,4 +22,15 @@ commandTests:
     command: "/usr/local/bin/otelcol"
     args: ["components"]
     expectedOutput: ["hostmetrics"]
+    exitCode: 0
+
+  - name: "bash command works"
+    command: "bash"
+    args: ["-c", "echo test"]
+    expectedOutput: ["test"]
+    exitCode: 0
+
+  - name: "verify user is nonroot"
+    command: "whoami"
+    expectedOutput: ["nonroot"]
     exitCode: 0
