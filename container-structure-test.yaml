@@ -34,3 +34,15 @@ commandTests:
     command: "whoami"
     expectedOutput: ["nonroot"]
     exitCode: 0
+
+  - name: "/etc directory is writable"
+    command: "bash"
+    args: ["-c", "touch /etc/test_write && rm /etc/test_write && echo 'writable'"]
+    expectedOutput: ["writable"]
+    exitCode: 0
+
+  - name: "/mnt directory is writable"
+    command: "bash"
+    args: ["-c", "touch /mnt/test_write && rm /mnt/test_write && echo 'writable'"]
+    expectedOutput: ["writable"]
+    exitCode: 0
