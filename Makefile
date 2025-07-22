@@ -16,9 +16,9 @@ build: ## Build the otelcol image
 lint: lint-docker lint-gha lint-ocb ## Lint
 
 .PHONY: lint-docker
-lint-docker:
+lint-docker: ## Docker に関連する事を検査する。事前に build を実行しておくこと
 	hadolint Dockerfile
-	yamllint container-structure-test.yaml
+	yamllint compose.yaml container-structure-test.yaml
 	container-structure-test test --image otelcol-dreamkast:latest --config container-structure-test.yaml
 
 .PHONY: lint-gha

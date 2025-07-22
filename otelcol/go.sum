@@ -794,6 +794,8 @@ go.opentelemetry.io/collector/consumer/xconsumer v0.130.0 h1:Mc+xoW5IpdOZCX4T7WZ
 go.opentelemetry.io/collector/consumer/xconsumer v0.130.0/go.mod h1:zEvGS3hulrM8HGIjGVdTIbhcsISuOZWLMimrh7bEJI4=
 go.opentelemetry.io/collector/exporter v0.130.0 h1:zzqIvVEwgaEJwAJgfoROLQ2ic0cNOPYEirsr8jyvHgo=
 go.opentelemetry.io/collector/exporter v0.130.0/go.mod h1:jCiEZcn0Y/AaZ2Ijviw/VEjh4NFFbT7LCC/L3KTTObQ=
+go.opentelemetry.io/collector/exporter/debugexporter v0.130.0 h1:AnEjvxfD7XtbIQLLxFxyHmYXwDydA2iI7uZhuM9q7jM=
+go.opentelemetry.io/collector/exporter/debugexporter v0.130.0/go.mod h1:s+ZKuaSWISicn3kK81EHEOvo/MoaLJbvNdZsZjZiFkA=
 go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper v0.130.0 h1:YYUsBUnsA+E6rxlKyXydYre5QZUfMFqzskDJ4dRuJ+4=
 go.opentelemetry.io/collector/exporter/exporterhelper/xexporterhelper v0.130.0/go.mod h1:xW3MRQ10iHcYRdv09YCq54IjrUvagwUTFN2t2KQCib4=
 go.opentelemetry.io/collector/exporter/exportertest v0.130.0 h1:jpNphKKgrqLhshTIyJ5YFDiU634LXUxkyQU3xgyxWmM=

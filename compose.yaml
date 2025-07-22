@@ -1,0 +1,11 @@
+---
+# OTELCOL_CONFIG="$(cat <PATH>/dreamkast-infra/ecspresso/stg/dreamkast/files/otelcol-config.yaml)" docker compose up
+
+services:
+  otelcol-dreamkast:
+    image: otelcol-dreamkast:latest
+    entrypoint: ["bash", "-c"]
+    command: ["echo \"${OTELCOL_CONFIG}\" > /mnt/otelcol-config.yaml; /usr/local/bin/otelcol --config=/mnt/otelcol-config.yaml"]  # yamllint disable-line rule:line-length
+    environment:
+      - MACKEREL_APIKEY
+      - OTELCOL_CONFIG
