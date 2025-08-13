@@ -7,7 +7,7 @@ COPY otelcol/ otelcol/
 WORKDIR /root/otelcol
 RUN go build -o otelcol .
 
-FROM debian:12-slim
+FROM debian:13-slim
 
 WORKDIR /mnt
 
