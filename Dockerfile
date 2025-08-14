@@ -11,7 +11,11 @@ FROM debian:12-slim
 
 WORKDIR /mnt
 
-RUN adduser --disabled-password --gecos "" nonroot \
+# hadolint ignore=DL3008
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends ca-certificates \
+ && rm -rf /var/lib/apt/lists/* \
+ && adduser --disabled-password --gecos "" nonroot \
  && chown nonroot:nonroot /etc \
  && chown nonroot:nonroot /mnt
 
