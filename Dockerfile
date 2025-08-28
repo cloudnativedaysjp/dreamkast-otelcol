@@ -13,11 +13,11 @@ WORKDIR /mnt
 
 # hadolint ignore=DL3008
 RUN apt-get update \
- && apt-get install -y --no-install-recommends ca-certificates \
- && rm -rf /var/lib/apt/lists/* \
- && adduser --disabled-password --gecos "" nonroot \
- && chown nonroot:nonroot /etc \
- && chown nonroot:nonroot /mnt
+  && apt-get install -y --no-install-recommends ca-certificates \
+  && rm -rf /var/lib/apt/lists/* \
+  && useradd -m -s /bin/bash -U nonroot \
+  && chown nonroot:nonroot /etc \
+  && chown nonroot:nonroot /mnt
 
 USER nonroot
 
