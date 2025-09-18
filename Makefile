@@ -10,7 +10,7 @@ generate-code: ## Generate the otelcol code
 
 .PHONY: build
 build: ## Build the otelcol image
-	docker buildx build -t otelcol-dreamkast:latest .
+	docker buildx build -t 607167088920.dkr.ecr.ap-northeast-1.amazonaws.com/dreamkast-otelcol:branch-main .
 
 .PHONY: lint
 lint: lint-docker lint-gha lint-ocb ## Lint
