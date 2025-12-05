@@ -23,7 +23,7 @@ processors:
   - gomod: go.opentelemetry.io/collector/processor/batchprocessor v0.140.0
 
 exporters:
-  - gomod: github.com/mackerelio/opentelemetry-collector-mackerel/exporter/mackerelotlpexporter v0.4.0
+  - gomod: github.com/mackerelio/opentelemetry-collector-mackerel/exporter/mackerelotlpexporter v0.5.0
   - gomod: go.opentelemetry.io/collector/exporter/debugexporter v0.140.0
 
   # dreaamkast-infra で mackerelotlpexporter を使ったら、これは要らない
