@@ -1,3 +1,5 @@
+# Rebuild to publish a multi-arch (amd64/arm64) branch-main image so ECS tasks
+# can run on Graviton (ARM64). See cloudnativedaysjp/dreamkast-infra ARM switch.
 FROM golang:1.25-bookworm AS builder
 
 WORKDIR /root
