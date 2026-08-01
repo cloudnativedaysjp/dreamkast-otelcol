@@ -614,6 +614,8 @@ github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisti
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/probabilisticsamplerprocessor v0.155.0/go.mod h1:pV7/g0+QhcCn99AquCuUqwv86o/rHAV17ltA2cJG120=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor v0.155.0 h1:MCnRnAxhdCRAMO8y8tQr301STwzsf30cet/sm2ENk2I=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourcedetectionprocessor v0.155.0/go.mod h1:3UHjMcfak812cru5sV4XFIcb+1aGs9Mz9EEfwDY90n0=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor v0.155.0 h1:FXptP6AvYsom77QecaSJQcC9vTrVejpmnrbCHpUsWns=
+github.com/open-telemetry/opentelemetry-collector-contrib/processor/resourceprocessor v0.155.0/go.mod h1:cCujio3QWXzAanOP+tTIsDRaZOjm5/RJeTm7rBiNVAo=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor v0.155.0 h1:4dgIqbcuWxq2SbrVXNb8gyXiEOVu3MSFzSpZEP9IqwA=
 github.com/open-telemetry/opentelemetry-collector-contrib/processor/tailsamplingprocessor v0.155.0/go.mod h1:XDB6fYmjiUDLvAoZQ1wX+J9v9cV8x9n9oP+wQ+yxflI=
 github.com/open-telemetry/opentelemetry-collector-contrib/receiver/filelogreceiver v0.155.0 h1:iwbI95bt0uODjbRrrnBVpEd1+2UDsPS2mG01Q9+c1Ps=
